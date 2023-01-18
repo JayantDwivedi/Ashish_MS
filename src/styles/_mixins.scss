@@ -1,0 +1,101 @@
+@mixin input-placeholder {
+	&.placeholder {
+		@content;
+	}
+	&:-moz-placeholder {
+		@content;
+	}
+	&::-moz-placeholder {
+		@content;
+	}
+	&:-ms-input-placeholder {
+		@content;
+	}
+	&::-webkit-input-placeholder {
+		@content;
+	}
+}
+
+$iphone5-width: 350px;
+$iphone6-width: 375px;
+$tablet-width: 768px;
+$tablet-p-width: 991px;
+$desktop-width: 1024px;
+$desktop-width-lg: 1500px;
+
+@mixin iphone5 {
+	@media (max-width: #{$iphone5-width}) {
+		@content;
+	}
+}
+
+@mixin iphone6 {
+	@media (min-width: #{$iphone6-width}) and (max-width: #{$tablet-width - 1px}) {
+		@content;
+	}
+}
+
+@mixin mobile {
+	@media (max-width: #{$tablet-width - 1px}) {
+		@content;
+	}
+}
+@mixin mobile-o-l {
+	@media (max-width: #{$tablet-width - 1px}) and (orientation:landscape) {
+		@content;
+	}
+}
+
+@mixin mobile-tablet-p {
+	@media (max-width: #{$tablet-p-width}) {
+		@content;
+	}
+}
+
+@mixin tablet {
+	@media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+		@content;
+	}
+}
+
+@mixin tablet-p {
+	@media (min-width: #{$tablet-width}) and (max-width: #{$tablet-p-width}) {
+		@content;
+	}
+}
+
+@mixin tablet-l {
+	@media (min-width: #{$tablet-p-width + 1px}) and (max-width: #{$desktop-width - 1px}) {
+		@content;
+	}
+}
+
+@mixin tablet-desktop {
+	@media (min-width: #{$tablet-p-width + 1px}) {
+		@content;
+	}
+}
+
+@mixin tablet-desktop-full {
+	@media (min-width: #{$tablet-width - 1px}) {
+		@content;
+	}
+}
+
+@mixin desktop {
+	@media (min-width: #{$desktop-width}) {
+		@content;
+	}
+}
+
+@mixin desktop-lg {
+	@media (min-width: #{$desktop-width-lg}) {
+		@content;
+	}
+}
+
+@mixin chrome {
+	@media screen and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) {
+		@content;
+	}
+}
